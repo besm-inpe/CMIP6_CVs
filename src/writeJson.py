@@ -144,6 +144,7 @@ PJD  7 Apr 2017    - Register GFDL source_ids https://github.com/WCRP-CMIP/CMIP6
 PJD  7 Apr 2017    - Register source_id CAMS_CSM1-0 https://github.com/WCRP-CMIP/CMIP6_CVs/issues/246
 PJD  8 Apr 2017    - Update multiple NorESM source_ids https://github.com/WCRP-CMIP/CMIP6_CVs/issues/259
 PJD  8 Apr 2017    - Update html markup https://github.com/WCRP-CMIP/CMIP6_CVs/issues/248
+PJD 10 Apr 2017    - Update AWI-CM source_id https://github.com/WCRP-CMIP/CMIP6_CVs/issues/210
                    - TODO: Redirect sources to CMIP6_CVs master files (not cmip6-cmor-tables) ; coordinate, formula_terms, grids
                    - TODO: Redirect source_id to CMIP6_CVs master file
                    - TODO: Generate function for json compositing
@@ -168,7 +169,7 @@ from durolib import getGitInfo
 #import pdb
 
 #%% Set commit message
-commitMessage = '\"Update html markup\"'
+commitMessage = '\"Update AWI-CM source_id\"'
 
 #%% Define functions
 # Get repo metadata
@@ -518,6 +519,19 @@ source_id = source_id.get('source_id')
 source_id = source_id.get('source_id') ; # Fudge to extract duplicate level
 
 # Fix issues
+source_id['AWI-CM-1-0']['activity_participation'] = ['CMIP',
+                                                     'CORDEX',
+                                                     'HighResMIP',
+                                                     'OMIP',
+                                                     'PMIP',
+                                                     'SIMIP',
+                                                     'ScenarioMIP',
+                                                     'VIACSAB']
+source_id['AWI-CM-1-0']['atmosphere'] = 'ECHAM6.3.02p4 (T127L95 native atmosphere T127 gaussian grid; 384 x 192 longitude/latitude; 95 levels; top level 80 km)'
+source_id['AWI-CM-1-0']['nominal_resolution_atmos'] = ['100 km']
+source_id['AWI-CM-1-0']['nominal_resolution_landIce'] = ['none']
+source_id['AWI-CM-1-0']['nominal_resolution_ocean'] = ['25 km']
+source_id['AWI-CM-1-0']['ocean'] = 'FESOM 1.4 (unstructured grid in the horizontal with 830305 wet nodes; 46 levels; top grid cell 0-5 m)'
 #==============================================================================
 #source_id['GFDL-ESM4']['activity_participation'] = ['AerChemMIP',
 #                                                    'C4MIP',
